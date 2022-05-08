@@ -22,35 +22,35 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"emerkfu.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":"ture","bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"zuoziwen8.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":"ture","bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 <meta name="description" content="为什么数据中台被认为是大数据的下一站呢？它与你之前遇到的数据仓库、数据湖、大数据平台又有什么区别？ 这篇文章带着这个问题，与你深入大数据的发展历史，先从数据仓库的出现讲起，途径数据湖，再到大数据平台，因为这样，才能理解大数据发展的每个阶段遇到的问题，从而深入理解数据中台在大数据发展中的历史定位。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据中台_01-为什么数据中台是大数据的下一站">
-<meta property="og:url" content="https://emerkfu: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@emerkfu.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/index.html">
+<meta property="og:url" content="https://zuoziwen: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@zuoziwen8.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/index.html">
 <meta property="og:site_name" content="Emerk&#39;s blog">
 <meta property="og:description" content="为什么数据中台被认为是大数据的下一站呢？它与你之前遇到的数据仓库、数据湖、大数据平台又有什么区别？ 这篇文章带着这个问题，与你深入大数据的发展历史，先从数据仓库的出现讲起，途径数据湖，再到大数据平台，因为这样，才能理解大数据发展的每个阶段遇到的问题，从而深入理解数据中台在大数据发展中的历史定位。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://emerkfu: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@emerkfu.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93.png">
-<meta property="og:image" content="https://emerkfu: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@emerkfu.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E4%B9%B0%E5%AE%B6%E8%A1%A8.png">
-<meta property="og:image" content="https://emerkfu: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@emerkfu.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E5%95%86%E5%93%81%E8%A1%A8.png">
-<meta property="og:image" content="https://emerkfu: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@emerkfu.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E4%B9%B0%E5%AE%B6%E5%95%86%E5%93%81%E4%BA%A4%E6%98%93%E8%A1%A8.png">
-<meta property="og:image" content="https://emerkfu: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@emerkfu.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E7%94%A8%E6%88%B7%E7%BB%B4%E5%BA%A6%E8%A1%A8.png">
-<meta property="og:image" content="https://emerkfu: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@emerkfu.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E5%95%86%E5%93%81%E7%BB%B4%E5%BA%A6%E8%A1%A8.png">
-<meta property="og:image" content="https://emerkfu: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@emerkfu.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E8%B4%A6%E6%88%B7%E4%BD%99%E9%A2%9D%E4%BA%8B%E5%AE%9E%E8%A1%A8.png">
-<meta property="og:image" content="https://emerkfu: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@emerkfu.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E5%95%86%E5%93%81%E5%BA%93%E5%AD%98%E4%BA%8B%E5%AE%9E%E8%A1%A8.png">
-<meta property="og:image" content="https://emerkfu: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@emerkfu.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E9%9C%80%E6%B1%82%E6%B5%81%E7%A8%8B.png">
-<meta property="og:image" content="https://emerkfu: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@emerkfu.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0.png">
+<meta property="og:image" content="https://zuoziwen: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@zuoziwen8.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93.png">
+<meta property="og:image" content="https://zuoziwen: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@zuoziwen8.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E4%B9%B0%E5%AE%B6%E8%A1%A8.png">
+<meta property="og:image" content="https://zuoziwen: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@zuoziwen8.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E5%95%86%E5%93%81%E8%A1%A8.png">
+<meta property="og:image" content="https://zuoziwen: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@zuoziwen8.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E4%B9%B0%E5%AE%B6%E5%95%86%E5%93%81%E4%BA%A4%E6%98%93%E8%A1%A8.png">
+<meta property="og:image" content="https://zuoziwen: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@zuoziwen8.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E7%94%A8%E6%88%B7%E7%BB%B4%E5%BA%A6%E8%A1%A8.png">
+<meta property="og:image" content="https://zuoziwen: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@zuoziwen8.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E5%95%86%E5%93%81%E7%BB%B4%E5%BA%A6%E8%A1%A8.png">
+<meta property="og:image" content="https://zuoziwen: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@zuoziwen8.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E8%B4%A6%E6%88%B7%E4%BD%99%E9%A2%9D%E4%BA%8B%E5%AE%9E%E8%A1%A8.png">
+<meta property="og:image" content="https://zuoziwen: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@zuoziwen8.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E5%95%86%E5%93%81%E5%BA%93%E5%AD%98%E4%BA%8B%E5%AE%9E%E8%A1%A8.png">
+<meta property="og:image" content="https://zuoziwen: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@zuoziwen8.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E9%9C%80%E6%B1%82%E6%B5%81%E7%A8%8B.png">
+<meta property="og:image" content="https://zuoziwen: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@zuoziwen8.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%B9%B3%E5%8F%B0.png">
 <meta property="og:image" content="https://static001.geekbang.org/resource/image/e5/78/e5ec6e5bc4e7c64718c0d961b9627b78.jpg">
 <meta property="article:published_time" content="2022-04-12T12:23:00.000Z">
 <meta property="article:modified_time" content="2022-05-04T13:24:45.467Z">
-<meta property="article:author" content="EmerkFu">
+<meta property="article:author" content="Zuo Ziwen">
 <meta property="article:tag" content="数据中台">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://emerkfu: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@emerkfu.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93.png">
+<meta name="twitter:image" content="https://zuoziwen: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@zuoziwen8.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93.png">
 
 
-<link rel="canonical" href="https://emerkfu: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@emerkfu.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/">
+<link rel="canonical" href="https://zuoziwen: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@zuoziwen8.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/">
 
 
 <script class="page-configurations">
@@ -226,7 +226,7 @@
 
         <section class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">EmerkFu</p>
+  <p class="site-author-name" itemprop="name">Zuo Ziwen</p>
   <div class="site-description" itemprop="description">Stay Hungry. Stay Foolish.</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
@@ -286,11 +286,11 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://emerkfu: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@emerkfu.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/">
+    <link itemprop="mainEntityOfPage" href="https://zuoziwen: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@zuoziwen8.github.io/2022/04/12/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_01-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0%E6%98%AF%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%9A%84%E4%B8%8B%E4%B8%80%E7%AB%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EmerkFu">
+      <meta itemprop="name" content="Zuo Ziwen">
       <meta itemprop="description" content="Stay Hungry. Stay Foolish.">
     </span>
 

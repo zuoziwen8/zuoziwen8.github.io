@@ -22,27 +22,27 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"emerkfu.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":"ture","bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"zuoziwen8.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":"ture","bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 <meta name="description" content="Kafka工作流程的相关内容">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kafka工作流程">
-<meta property="og:url" content="https://emerkfu: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@emerkfu.github.io/2019/04/13/Kafka%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/index.html">
+<meta property="og:url" content="https://zuoziwen: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@zuoziwen8.github.io/2019/04/13/Kafka%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Emerk&#39;s blog">
 <meta property="og:description" content="Kafka工作流程的相关内容">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://emerkfu: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@emerkfu.github.io/2019/04/13/Kafka%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/anatomy-of-a-topic.png">
-<meta property="og:image" content="https://emerkfu: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@emerkfu.github.io/2019/04/13/Kafka%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/partition-producer-consumer.png">
-<meta property="og:image" content="https://emerkfu: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@emerkfu.github.io/2019/04/13/Kafka%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/consumer-pull.png">
+<meta property="og:image" content="https://zuoziwen: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@zuoziwen8.github.io/2019/04/13/Kafka%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/anatomy-of-a-topic.png">
+<meta property="og:image" content="https://zuoziwen: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@zuoziwen8.github.io/2019/04/13/Kafka%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/partition-producer-consumer.png">
+<meta property="og:image" content="https://zuoziwen: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@zuoziwen8.github.io/2019/04/13/Kafka%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/consumer-pull.png">
 <meta property="article:published_time" content="2019-04-13T13:42:51.000Z">
 <meta property="article:modified_time" content="2022-05-04T06:22:01.143Z">
-<meta property="article:author" content="EmerkFu">
+<meta property="article:author" content="Zuo Ziwen">
 <meta property="article:tag" content="Kafka">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://emerkfu: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@emerkfu.github.io/2019/04/13/Kafka%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/anatomy-of-a-topic.png">
+<meta name="twitter:image" content="https://zuoziwen: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@zuoziwen8.github.io/2019/04/13/Kafka%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/anatomy-of-a-topic.png">
 
 
-<link rel="canonical" href="https://emerkfu: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@emerkfu.github.io/2019/04/13/Kafka%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/">
+<link rel="canonical" href="https://zuoziwen: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@zuoziwen8.github.io/2019/04/13/Kafka%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/">
 
 
 <script class="page-configurations">
@@ -218,7 +218,7 @@
 
         <section class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">EmerkFu</p>
+  <p class="site-author-name" itemprop="name">Zuo Ziwen</p>
   <div class="site-description" itemprop="description">Stay Hungry. Stay Foolish.</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
@@ -278,11 +278,11 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://emerkfu: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@emerkfu.github.io/2019/04/13/Kafka%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/">
+    <link itemprop="mainEntityOfPage" href="https://zuoziwen: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@zuoziwen8.github.io/2019/04/13/Kafka%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EmerkFu">
+      <meta itemprop="name" content="Zuo Ziwen">
       <meta itemprop="description" content="Stay Hungry. Stay Foolish.">
     </span>
 
@@ -368,7 +368,7 @@
 <li>leader收到所有ISR（In Sync Replicas）中的replication的ACK后，增加HW（high watermark，最后commit 的offset）并向producer发送ACK</li>
 </ol>
 <h4 id="Broker保存信息"><a href="#Broker保存信息" class="headerlink" title="Broker保存信息"></a>Broker保存信息</h4><h5 id="存储方式"><a href="#存储方式" class="headerlink" title="存储方式"></a>存储方式</h5><p>物理上把topic分成一个或多个patition（对应 server.properties 中的num.partitions=3配置），每个patition物理上对应一个文件夹（该文件夹存储该patition的所有消息和索引文件），如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[emerk@hadoop001 logs]$ ll</span><br><span class="line">drwxrwxr-x. 2 emerk emerk  4096 3月   6 14:37 first-0</span><br><span class="line">drwxrwxr-x. 2 emerk emerk  4096 3月   6 14:35 first-1</span><br><span class="line">drwxrwxr-x. 2 emerk emerk  4096 3月   6 14:37 first-2</span><br><span class="line">[emerk@hadoop001 logs]$ cd first-0</span><br><span class="line">[emerk@hadoop001 first-0]$ ll</span><br><span class="line">-rw-rw-r--. 1 emerk emerk 10485760 3月   6 14:33 00000000000000000000.index</span><br><span class="line">-rw-rw-r--. 1 emerk emerk      219 3月   6 15:07 00000000000000000000.log</span><br><span class="line">-rw-rw-r--. 1 emerk emerk 10485756 3月   6 14:33 00000000000000000000.timeindex</span><br><span class="line">-rw-rw-r--. 1 emerk emerk        8 3月   6 14:37 leader-epoch-checkpoint</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[zuoziwen@hadoop001 logs]$ ll</span><br><span class="line">drwxrwxr-x. 2 zuoziwen zuoziwen  4096 3月   6 14:37 first-0</span><br><span class="line">drwxrwxr-x. 2 zuoziwen zuoziwen  4096 3月   6 14:35 first-1</span><br><span class="line">drwxrwxr-x. 2 zuoziwen zuoziwen  4096 3月   6 14:37 first-2</span><br><span class="line">[zuoziwen@hadoop001 logs]$ cd first-0</span><br><span class="line">[zuoziwen@hadoop001 first-0]$ ll</span><br><span class="line">-rw-rw-r--. 1 zuoziwen zuoziwen 10485760 3月   6 14:33 00000000000000000000.index</span><br><span class="line">-rw-rw-r--. 1 zuoziwen zuoziwen      219 3月   6 15:07 00000000000000000000.log</span><br><span class="line">-rw-rw-r--. 1 zuoziwen zuoziwen 10485756 3月   6 14:33 00000000000000000000.timeindex</span><br><span class="line">-rw-rw-r--. 1 zuoziwen zuoziwen        8 3月   6 14:37 leader-epoch-checkpoint</span><br></pre></td></tr></table></figure>
 <h5 id="存储策略"><a href="#存储策略" class="headerlink" title="存储策略"></a>存储策略</h5><p>无论消息是否被消费，kafka都会保留所有消息。有两种策略可以删除旧数据：</p>
 <ol>
 <li>基于时间：log.retention.hours=168</li>

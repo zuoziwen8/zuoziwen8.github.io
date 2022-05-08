@@ -22,25 +22,25 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"emerkfu.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":"ture","bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"zuoziwen8.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":"ture","bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 <meta name="description" content="Flink 本地调试 Web UI DashBoard">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Flink 本地开发 Web UI DashBoard">
-<meta property="og:url" content="https://emerkfu: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@emerkfu.github.io/2021/07/26/Flink%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95WebUI/index.html">
+<meta property="og:url" content="https://zuoziwen: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@zuoziwen8.github.io/2021/07/26/Flink%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95WebUI/index.html">
 <meta property="og:site_name" content="Emerk&#39;s blog">
 <meta property="og:description" content="Flink 本地调试 Web UI DashBoard">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://emerkfu: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@emerkfu.github.io/2021/07/26/Flink%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95WebUI/FlinkWebUIDashBoard.png">
+<meta property="og:image" content="https://zuoziwen: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@zuoziwen8.github.io/2021/07/26/Flink%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95WebUI/FlinkWebUIDashBoard.png">
 <meta property="article:published_time" content="2021-07-26T01:23:00.000Z">
 <meta property="article:modified_time" content="2022-05-04T06:21:52.128Z">
-<meta property="article:author" content="EmerkFu">
+<meta property="article:author" content="Zuo Ziwen">
 <meta property="article:tag" content="Flink">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://emerkfu: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@emerkfu.github.io/2021/07/26/Flink%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95WebUI/FlinkWebUIDashBoard.png">
+<meta name="twitter:image" content="https://zuoziwen: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@zuoziwen8.github.io/2021/07/26/Flink%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95WebUI/FlinkWebUIDashBoard.png">
 
 
-<link rel="canonical" href="https://emerkfu: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@emerkfu.github.io/2021/07/26/Flink%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95WebUI/">
+<link rel="canonical" href="https://zuoziwen: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@zuoziwen8.github.io/2021/07/26/Flink%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95WebUI/">
 
 
 <script class="page-configurations">
@@ -216,7 +216,7 @@
 
         <section class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">EmerkFu</p>
+  <p class="site-author-name" itemprop="name">Zuo Ziwen</p>
   <div class="site-description" itemprop="description">Stay Hungry. Stay Foolish.</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
@@ -276,11 +276,11 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://emerkfu: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@emerkfu.github.io/2021/07/26/Flink%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95WebUI/">
+    <link itemprop="mainEntityOfPage" href="https://zuoziwen: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@zuoziwen8.github.io/2021/07/26/Flink%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95WebUI/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EmerkFu">
+      <meta itemprop="name" content="Zuo Ziwen">
       <meta itemprop="description" content="Stay Hungry. Stay Foolish.">
     </span>
 

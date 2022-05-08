@@ -22,26 +22,26 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"emerkfu.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":"ture","bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+    var CONFIG = {"hostname":"zuoziwen8.github.io","root":"/","images":"/images","scheme":"Gemini","version":"8.1.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":"ture","bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 <meta name="description" content="在上一篇中，我们一起回顾了大数据的发展历史，从历史脉络中，我们看到了数据中台凸显的价值，并得出数据中台是大数据下一站的结论。 既然数据中台受到了前所未有的关注，价值如此之大，是不是所有的企业都适合建设数据中台呢？到底什么样的企业应该建数据中台？带着这样的疑问，我们正式进入今天的课程。 我先跟你分享一下，2018 年我们在建数据中台前面临的窘境，通过了解我们建数据中台的背景，你也可以对照着看一下自己">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据中台_02-什么样的企业应该建数据中台">
-<meta property="og:url" content="https://emerkfu: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@emerkfu.github.io/2022/04/13/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_02-%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BC%81%E4%B8%9A%E5%BA%94%E8%AF%A5%E5%BB%BA%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0/index.html">
+<meta property="og:url" content="https://zuoziwen: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@zuoziwen8.github.io/2022/04/13/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_02-%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BC%81%E4%B8%9A%E5%BA%94%E8%AF%A5%E5%BB%BA%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0/index.html">
 <meta property="og:site_name" content="Emerk&#39;s blog">
 <meta property="og:description" content="在上一篇中，我们一起回顾了大数据的发展历史，从历史脉络中，我们看到了数据中台凸显的价值，并得出数据中台是大数据下一站的结论。 既然数据中台受到了前所未有的关注，价值如此之大，是不是所有的企业都适合建设数据中台呢？到底什么样的企业应该建数据中台？带着这样的疑问，我们正式进入今天的课程。 我先跟你分享一下，2018 年我们在建数据中台前面临的窘境，通过了解我们建数据中台的背景，你也可以对照着看一下自己">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://emerkfu: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@emerkfu.github.io/2022/04/13/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_02-%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BC%81%E4%B8%9A%E5%BA%94%E8%AF%A5%E5%BB%BA%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0/%E6%95%B0%E6%8D%AE%E4%BA%A7%E5%93%81%E4%BD%93%E7%B3%BB.png">
-<meta property="og:image" content="https://emerkfu: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@emerkfu.github.io/2022/04/13/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_02-%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BC%81%E4%B8%9A%E5%BA%94%E8%AF%A5%E5%BB%BA%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0/%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0.png">
+<meta property="og:image" content="https://zuoziwen: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@zuoziwen8.github.io/2022/04/13/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_02-%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BC%81%E4%B8%9A%E5%BA%94%E8%AF%A5%E5%BB%BA%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0/%E6%95%B0%E6%8D%AE%E4%BA%A7%E5%93%81%E4%BD%93%E7%B3%BB.png">
+<meta property="og:image" content="https://zuoziwen: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@zuoziwen8.github.io/2022/04/13/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_02-%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BC%81%E4%B8%9A%E5%BA%94%E8%AF%A5%E5%BB%BA%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0/%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0.png">
 <meta property="article:published_time" content="2022-04-13T13:40:00.000Z">
 <meta property="article:modified_time" content="2022-05-04T13:12:11.303Z">
-<meta property="article:author" content="EmerkFu">
+<meta property="article:author" content="Zuo Ziwen">
 <meta property="article:tag" content="数据中台">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://emerkfu: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@emerkfu.github.io/2022/04/13/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_02-%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BC%81%E4%B8%9A%E5%BA%94%E8%AF%A5%E5%BB%BA%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0/%E6%95%B0%E6%8D%AE%E4%BA%A7%E5%93%81%E4%BD%93%E7%B3%BB.png">
+<meta name="twitter:image" content="https://zuoziwen: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@zuoziwen8.github.io/2022/04/13/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_02-%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BC%81%E4%B8%9A%E5%BA%94%E8%AF%A5%E5%BB%BA%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0/%E6%95%B0%E6%8D%AE%E4%BA%A7%E5%93%81%E4%BD%93%E7%B3%BB.png">
 
 
-<link rel="canonical" href="https://emerkfu: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@emerkfu.github.io/2022/04/13/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_02-%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BC%81%E4%B8%9A%E5%BA%94%E8%AF%A5%E5%BB%BA%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0/">
+<link rel="canonical" href="https://zuoziwen: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@zuoziwen8.github.io/2022/04/13/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_02-%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BC%81%E4%B8%9A%E5%BA%94%E8%AF%A5%E5%BB%BA%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0/">
 
 
 <script class="page-configurations">
@@ -217,7 +217,7 @@
 
         <section class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">EmerkFu</p>
+  <p class="site-author-name" itemprop="name">Zuo Ziwen</p>
   <div class="site-description" itemprop="description">Stay Hungry. Stay Foolish.</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
@@ -277,11 +277,11 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://emerkfu: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@emerkfu.github.io/2022/04/13/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_02-%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BC%81%E4%B8%9A%E5%BA%94%E8%AF%A5%E5%BB%BA%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0/">
+    <link itemprop="mainEntityOfPage" href="https://zuoziwen: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@zuoziwen8.github.io/2022/04/13/%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0_02-%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BC%81%E4%B8%9A%E5%BA%94%E8%AF%A5%E5%BB%BA%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%8F%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="EmerkFu">
+      <meta itemprop="name" content="Zuo Ziwen">
       <meta itemprop="description" content="Stay Hungry. Stay Foolish.">
     </span>
 
